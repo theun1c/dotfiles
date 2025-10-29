@@ -16,6 +16,17 @@
     xwayland.enable = true;
   };  
 
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true; # if not already enabled
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment the following
+    jack.enable = true;
+  };
+
+ 
   services.xserver = {
     enable = true;
     displayManager = {
@@ -43,7 +54,6 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -112,7 +122,18 @@
     gopls
     go-tools
     
+    libpng
+    
+    unzip
+
+    nekoray
+    cassette
+
+  
+    pipewire
+    pavucontrol
   ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
